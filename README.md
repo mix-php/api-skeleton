@@ -147,7 +147,7 @@ RDS::instance()
 Logger::instance()
 ```
 
-文档：[hassankhan/config](https://seldaek.github.io/monolog/doc/01-usage.html)
+文档：[monolog/monolog](https://seldaek.github.io/monolog/doc/01-usage.html)
 
 - 配置
 
