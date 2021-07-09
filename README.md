@@ -44,7 +44,22 @@ composer run-script workerman:start
 
 `.php` 文件就是程序的入口文件，可以根据自己的需求修改
 
-## 编写一个 API 服务
+## 编写一个 API 接口
+
+首先修改 `.env` 文件的数据库信息
+
+```
+# DATABASE
+DATABASE_DSN='mysql:host=127.0.0.1;port=3306;charset=utf8;dbname=test'
+DATABASE_USERNAME=root
+DATABASE_PASSWORD=123456
+
+# REDIS
+REDIS_HOST=127.0.0.1
+REDIS_PORT=6379
+REDIS_DATABASE=0
+REDIS_PASSWORD=
+```
 
 在 `src/Router/Vega.php` 定义一个新的路由
 
@@ -104,6 +119,41 @@ composer run-script swoole:start
 
 // curl 测试
 curl http://127.0.0.1:9501/users/1
+```
+
+## 使用容器中的对象
+
+骨架中并没有使用以前那种非常复杂的依赖注入容器，仅仅是采用了一个简单的单例模式，你可以修改为更加适合自己的方式。
+
+- 数据库
+
+数据库文档：[mix-php/database](https://github.com/mix-php/database#readme)
+
+```
+DB::instance()
+```
+- Redis
+
+数据库文档：[mix-php/redis](https://github.com/mix-php/redis#readme)
+
+```
+RDS::instance()
+```
+
+- 日志
+
+日志文档：[hassankhan/config](https://seldaek.github.io/monolog/doc/01-usage.html)
+
+```
+Logger::instance()
+```
+
+- 配置
+
+配置文档：[hassankhan/config](https://github.com/hassankhan/config#getting-values)
+
+```
+Config::instance()
 ```
 
 ## License
