@@ -123,38 +123,39 @@ curl http://127.0.0.1:9501/users/1
 
 ## 使用容器中的对象
 
-骨架中并没有使用以前那种非常复杂的依赖注入容器，仅仅是采用了一个简单的单例模式，你可以修改为更加适合自己的方式。
+容器采用了一个简单的单例模式，你可以修改为更加适合自己的方式。
 
 - 数据库
-
-数据库文档：[mix-php/database](https://github.com/mix-php/database#readme)
 
 ```
 DB::instance()
 ```
-- Redis
 
-数据库文档：[mix-php/redis](https://github.com/mix-php/redis#readme)
+文档：[mix-php/database](https://github.com/mix-php/database#readme)
+
+- Redis
 
 ```
 RDS::instance()
 ```
 
-- 日志
+文档：[mix-php/redis](https://github.com/mix-php/redis#readme)
 
-日志文档：[hassankhan/config](https://seldaek.github.io/monolog/doc/01-usage.html)
+- 日志
 
 ```
 Logger::instance()
 ```
 
-- 配置
+文档：[hassankhan/config](https://seldaek.github.io/monolog/doc/01-usage.html)
 
-配置文档：[hassankhan/config](https://github.com/hassankhan/config#getting-values)
+- 配置
 
 ```
 Config::instance()
 ```
+
+文档：[hassankhan/config](https://github.com/hassankhan/config#getting-values)
 
 ## License
 
