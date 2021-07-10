@@ -10,7 +10,6 @@ $dotenv->load(__DIR__ . '/../.env');
 define("APP_DEBUG", $_ENV['APP_DEBUG']);
 
 $vega = Vega::new();
-
 $http = new Swoole\Http\Server('0.0.0.0', 9501);
 $http->on('Request', $vega->handler());
 Logger::instance()->info('Start swoole server');

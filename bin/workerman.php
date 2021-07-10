@@ -12,6 +12,6 @@ define("APP_DEBUG", $_ENV['APP_DEBUG']);
 $vega = Vega::new();
 $http = new Workerman\Worker("http://0.0.0.0:2345");
 $http->onMessage = $vega->handler();
-$http->count = 8;
+$http->count = 4;
 Logger::instance()->info('Start workerman server');
 Workerman\Worker::runAll();
