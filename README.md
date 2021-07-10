@@ -38,7 +38,8 @@ composer run-script workerman:start
 "scripts": {
     "swoole:start": "php bin/swoole.php start",
     "swooleco:start": "php bin/swooleco.php start",
-    "workerman:start": "php bin/workerman.php start"
+    "workerman:start": "php bin/workerman.php start",
+    "cli:clearcache": "php bin/cli.php clearcache"
 },
 ```
 
@@ -50,22 +51,9 @@ php bin/swoole.php start
 
 ## 编写一个 API 接口
 
-首先修改 `.env` 文件的数据库信息
+首先修改根目录 `.env` 文件的数据库信息
 
-```
-# DATABASE
-DATABASE_DSN='mysql:host=127.0.0.1;port=3306;charset=utf8;dbname=test'
-DATABASE_USERNAME=root
-DATABASE_PASSWORD=123456
-
-# REDIS
-REDIS_HOST=127.0.0.1
-REDIS_PORT=6379
-REDIS_DATABASE=0
-REDIS_PASSWORD=
-```
-
-在 `src/Router/Vega.php` 定义一个新的路由
+然后在 `src/Router/Vega.php` 定义一个新的路由
 
 ```php
 $vega->handleC('/users/{id}', [new Users(), 'index'])->methods('GET');
