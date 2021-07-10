@@ -9,13 +9,13 @@ use Symfony\Component\Dotenv\Dotenv;
 
 $dotenv = new Dotenv();
 $dotenv->load(__DIR__ . '/../.env');
+define("APP_DEBUG", $_ENV['APP_DEBUG']);
 
-$vega = Vega::new();
-
-Swoole\Coroutine\run(function () use ($vega) {
+Swoole\Coroutine\run(function () {
     DB::initCoroutine();
     RDS::initCoroutine();
 
+    $vega = Vega::new();
     $server = new Swoole\Coroutine\Http\Server('127.0.0.1', 9502, false, false);
     $server->handle('/', $vega->handler());
 

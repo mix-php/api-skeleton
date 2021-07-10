@@ -7,6 +7,7 @@ use Symfony\Component\Dotenv\Dotenv;
 
 $dotenv = new Dotenv();
 $dotenv->load(__DIR__ . '/../.env');
+define("APP_DEBUG", $_ENV['APP_DEBUG']);
 
 $vega = Vega::new();
 

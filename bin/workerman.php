@@ -7,9 +7,9 @@ use Symfony\Component\Dotenv\Dotenv;
 
 $dotenv = new Dotenv();
 $dotenv->load(__DIR__ . '/../.env');
+define("APP_DEBUG", $_ENV['APP_DEBUG']);
 
 $vega = Vega::new();
-
 $http = new Workerman\Worker("http://0.0.0.0:2345");
 $http->onMessage = $vega->handler();
 $http->count = 8;

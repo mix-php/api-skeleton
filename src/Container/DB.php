@@ -21,7 +21,9 @@ class DB
             $dsn = $_ENV['DATABASE_DSN'];
             $username = $_ENV['DATABASE_USERNAME'];
             $password = $_ENV['DATABASE_PASSWORD'];
-            self::$instance = new Database($dsn, $username, $password);
+            $db = new Database($dsn, $username, $password);
+            APP_DEBUG and $db->setLogger(new DBLogger());
+            self::$instance = $db;
         }
         return self::$instance;
     }

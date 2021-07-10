@@ -22,7 +22,9 @@ class RDS
             $port = $_ENV['REDIS_PORT'];
             $password = $_ENV['REDIS_PASSWORD'];
             $database = $_ENV['REDIS_DATABASE'];
-            self::$instance = new Redis($host, $port, $password, $database);
+            $rds = new Redis($host, $port, $password, $database);
+            APP_DEBUG and $rds->setLogger(new RDSLogger());
+            self::$instance = $rds;
         }
         return self::$instance;
     }

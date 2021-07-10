@@ -15,7 +15,7 @@ class Logger implements HandlerInterface
     static private $instance;
 
     /**
-     * @return \Noodlehaus\Config
+     * @return \Monolog\Logger
      */
     public static function instance(): \Monolog\Logger
     {
@@ -35,7 +35,7 @@ class Logger implements HandlerInterface
 
     public function handle(array $record): bool
     {
-        printf("%s  %s  %s\n", $record['datetime'], $record['level_name'], $record['message']);
+        printf("%s  %s  %s\n", $record['datetime']->format('Y-m-d H:i:s.u'), $record['level_name'], $record['message']);
         return false;
     }
 

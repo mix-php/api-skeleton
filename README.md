@@ -42,7 +42,11 @@ composer run-script workerman:start
 },
 ```
 
-`.php` 文件就是程序的入口文件，可以根据自己的需求修改
+当然也可以直接下面这样启动，效果是一样的，但是 `scripts` 能帮你记录到底有哪些可用的命令
+
+```
+php bin/swoole.php start
+```
 
 ## 编写一个 API 接口
 
