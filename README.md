@@ -15,24 +15,25 @@ composer create-project --prefer-dist mix/api-skeleton api
 启动 Swoole 多进程服务
 
 ```
-composer run-script swoole:start
+composer run-script --timeout=0 swoole:start
 ```
 
 启动 Swoole 协程服务
 
 ```
-composer run-script swooleco:start
+composer run-script --timeout=0 swooleco:start
 ```
 
 启动 WorkerMan 多进程服务
 
 ```
-composer run-script workerman:start
+composer run-script --timeout=0 workerman:start
 ```
 
 ## 启动脚本
 
-`composer.json` 定义了启动的脚本，对应上面的执行命令
+- 命令中的 `--timeout=0` 参数是防止执行超时 [查看详情](https://getcomposer.org/doc/06-config.md#process-timeout)
+- `composer.json` 定义了命令执行脚本，对应上面的执行命令
 
 ```json
 "scripts": {
