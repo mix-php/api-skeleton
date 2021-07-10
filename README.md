@@ -30,9 +30,9 @@ composer run-script --timeout=0 swooleco:start
 composer run-script --timeout=0 workerman:start
 ```
 
-## 启动脚本
+## Run script
 
-- 命令中的 `--timeout=0` 参数是防止执行超时 [查看详情](https://getcomposer.org/doc/06-config.md#process-timeout)
+- 命令中的 `--timeout=0` 参数是防止 composer 执行超时 [查看详情](https://getcomposer.org/doc/06-config.md#process-timeout)
 - `composer.json` 定义了命令执行脚本，对应上面的执行命令
 
 ```json
