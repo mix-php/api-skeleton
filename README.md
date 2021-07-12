@@ -46,7 +46,7 @@ composer run-script --timeout=0 workerman:start
 },
 ```
 
-当然也可以直接下面这样启动，效果是一样的，但是 `scripts` 能帮你记录到底有哪些可用的命令
+当然也可以直接下面这样启动，效果是一样的，但是 `scripts` 能帮你记录到底有哪些可用的命令，同时在IDE中调试更加方便。
 
 ```
 php bin/swoole.php start
