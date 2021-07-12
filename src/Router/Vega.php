@@ -45,9 +45,9 @@ class Vega
         }
 
         // routes
-        $vega->handleC('/hello', [new Hello(), 'index'])->methods('GET');
-        $vega->handleC('/users/{id}', [new Users(), 'index'])->methods('GET');
-        $vega->handleC('/auth', [new Auth(), 'index'])->methods('GET');
+        $vega->handleCall('/hello', [new Hello(), 'index'])->methods('GET');
+        $vega->handleCall('/users/{id}', [new Users(), 'index'])->methods('GET');
+        $vega->handleCall('/auth', [new Auth(), 'index'])->methods('GET');
 
         return $vega;
     }
