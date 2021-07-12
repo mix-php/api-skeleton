@@ -12,8 +12,6 @@ use Mix\Vega\Context;
 class Auth
 {
 
-    const KEY = 'foo';
-
     /**
      * @return \Closure
      */
@@ -22,7 +20,7 @@ class Auth
         return function (Context $ctx) {
             try {
                 list(, $token) = explode(' ', $ctx->header('authorization'));
-                $payload = JWT::decode($token, self::KEY, ['HS256']);
+                $payload = JWT::decode($token, $_ENV['JWT_KEY'], ['HS256']);
             } catch (\Throwable $e) {
                 $ctx->abortWithStatus(403);
             }

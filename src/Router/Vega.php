@@ -3,6 +3,7 @@
 namespace App\Router;
 
 use App\Container\Logger;
+use App\Controller\Auth;
 use App\Controller\Hello;
 use App\Controller\Users;
 use Mix\Vega\Context;
@@ -46,6 +47,7 @@ class Vega
         // routes
         $vega->handleC('/hello', [new Hello(), 'index'])->methods('GET');
         $vega->handleC('/users/{id}', [new Users(), 'index'])->methods('GET');
+        $vega->handleC('/auth', [new Auth(), 'index'])->methods('GET');
 
         return $vega;
     }
