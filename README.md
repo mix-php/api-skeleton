@@ -56,16 +56,16 @@ php bin/swoole.php start
 
 首先修改根目录 `.env` 文件的数据库信息
 
-然后在 `src/Router/Vega.php` 定义一个新的路由
+然后在 `routes/index.php` 定义一个新的路由
 
 ```php
-$vega->handleC('/users/{id}', [new Users(), 'index'])->methods('GET');
+$vega->handleCall('/users/{id}', [new Users(), 'index'])->methods('GET');
 ```
 
 路由里使用了 `Users` 控制器，我们需要创建他
 
-- 服务器文档：[mix-php/vega](https://github.com/mix-php/vega#readme)
-- 数据库文档：[mix-php/database](https://github.com/mix-php/database#readme)
+- 如何配置路由：[mix-php/vega](https://github.com/mix-php/vega#readme)
+- 如何调用数据库：[mix-php/database](https://github.com/mix-php/database#readme)
 
 ```php
 <?php

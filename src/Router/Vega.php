@@ -45,9 +45,8 @@ class Vega
         }
 
         // routes
-        $vega->handleCall('/hello', [new Hello(), 'index'])->methods('GET');
-        $vega->handleCall('/users/{id}', [new Users(), 'index'])->methods('GET');
-        $vega->handleCall('/auth', [new Auth(), 'index'])->methods('GET');
+        $routes = require __DIR__ . '/../../routes/index.php';
+        $routes($vega);
 
         return $vega;
     }
