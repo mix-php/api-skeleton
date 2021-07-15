@@ -2,7 +2,7 @@
 require __DIR__ . '/../vendor/autoload.php';
 
 use App\Container\Logger;
-use App\Router\Vega;
+use App\Vega;
 use Symfony\Component\Dotenv\Dotenv;
 
 $dotenv = new Dotenv();

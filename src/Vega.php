@@ -1,11 +1,8 @@
 <?php
 
-namespace App\Router;
+namespace App;
 
 use App\Container\Logger;
-use App\Controller\Auth;
-use App\Controller\Hello;
-use App\Controller\Users;
 use Mix\Vega\Context;
 use Mix\Vega\Engine;
 
@@ -45,7 +42,7 @@ class Vega
         }
 
         // routes
-        $routes = require __DIR__ . '/../../routes/index.php';
+        $routes = require __DIR__ . '/../routes/index.php';
         $routes($vega);
 
         return $vega;
