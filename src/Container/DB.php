@@ -28,7 +28,7 @@ class DB
         return self::$instance;
     }
 
-    public static function initCoroutine()
+    public static function enableCoroutine()
     {
         $maxOpen = 30;        // 最大开启连接数
         $maxIdle = 10;        // 最大闲置连接数

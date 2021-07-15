@@ -12,8 +12,8 @@ $dotenv->load(__DIR__ . '/../.env');
 define("APP_DEBUG", $_ENV['APP_DEBUG']);
 
 Swoole\Coroutine\run(function () {
-    DB::initCoroutine();
-    RDS::initCoroutine();
+    DB::enableCoroutine();
+    RDS::enableCoroutine();
 
     $vega = Vega::new();
     $server = new Swoole\Coroutine\Http\Server('127.0.0.1', 9502, false, false);
