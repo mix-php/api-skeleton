@@ -6,13 +6,13 @@
 
 ## Installation
 
+> 需要先安装 [Swoole](https://wiki.swoole.com/#/environment) 或者 [WorkerMan](http://doc.workerman.net/install/requirement.html)
+
 ```
 composer create-project --prefer-dist mix/api-skeleton api
 ```
 
 ## Quick start
-
-> 需要先安装 [Swoole](https://wiki.swoole.com/#/environment) 或者 [WorkerMan](http://doc.workerman.net/install/requirement.html)
 
 启动 Swoole 多进程服务
 
