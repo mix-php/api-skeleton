@@ -23,7 +23,7 @@ $http->on('WorkerStart', function ($server, $workerId) {
 });
 $http->set([
     'enable_coroutine' => true,
-    'worker_num' => 1,
+    'worker_num' => 4,
 ]);
 Logger::instance()->info('Start swoole server');
 $http->start();
