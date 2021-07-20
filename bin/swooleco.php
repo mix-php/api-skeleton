@@ -12,11 +12,10 @@ define("APP_DEBUG", $_ENV['APP_DEBUG'] !== 'false' && $_ENV['APP_DEBUG']);
 Swoole\Coroutine\run(function () {
     $vega = Vega::new();
     $server = new Swoole\Coroutine\Http\Server('0.0.0.0', 9502, false, false);
-    $init = function () {
-        App\Container\DB::enableCoroutine();
-        App\Container\RDS::enableCoroutine();
-    };
-    $server->handle('/', $vega->handler($init));
+    $server->handle('/', $vega->handler());
+
+    App\Container\DB::enableCoroutine();
+    App\Container\RDS::enableCoroutine();
 
     foreach ([SIGHUP, SIGINT, SIGTERM] as $signal) {
         Swoole\Process::signal($signal, function () use ($server) {
