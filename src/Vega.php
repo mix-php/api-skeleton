@@ -21,7 +21,7 @@ class Vega
             try {
                 $ctx->next();
             } catch (\Throwable $ex) {
-                Logger::instance()->error(sprintf('%s %s:%d', $ex->getMessage(), $ex->getFile(), $ex->getLine()));
+                Logger::instance()->error(sprintf('%s in %s on line %d', $ex->getMessage(), $ex->getFile(), $ex->getLine()));
                 $ctx->string(500, 'Internal Server Error');
                 $ctx->abort();
             }

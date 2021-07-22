@@ -8,6 +8,8 @@ use Dotenv\Dotenv;
 Dotenv::createUnsafeImmutable(__DIR__ . '/../', '.env')->load();
 define("APP_DEBUG", env('APP_DEBUG'));
 
+App\Error::register();
+
 $vega = Vega::new();
 $http = new Workerman\Worker("http://0.0.0.0:2345");
 $http->onMessage = $vega->handler();
