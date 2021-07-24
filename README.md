@@ -76,7 +76,7 @@ sh shell/server.sh restart
 然后在 `routes/index.php` 定义一个新的路由
 
 ```php
-$vega->handleCall('/users/{id}', [new Users(), 'index'])->methods('GET');
+$vega->handle('/users/{id}', [new Users(), 'index'])->methods('GET');
 ```
 
 路由里使用了 `Users` 控制器，我们需要创建他

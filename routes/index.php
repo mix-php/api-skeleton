@@ -5,7 +5,7 @@ use App\Controller\Hello;
 use App\Controller\Users;
 
 return function (Mix\Vega\Engine $vega) {
-    $vega->handleCall('/hello', [new Hello(), 'index'])->methods('GET');
-    $vega->handleCall('/users/{id}', [new Users(), 'index'])->methods('GET');
-    $vega->handleCall('/auth', [new Auth(), 'index'])->methods('GET');
+    $vega->handle('/hello', [new Hello(), 'index'])->methods('GET');
+    $vega->handle('/users/{id}', [new Users(), 'index'])->methods('GET');
+    $vega->handle('/auth', [new Auth(), 'index'])->methods('GET');
 };
