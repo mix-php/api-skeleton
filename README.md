@@ -52,6 +52,10 @@ composer run-script --timeout=0 workerman:start
 php bin/swoole.php start
 ```
 
+## 部署
+
+- CLI
+
 线上部署启动时，修改 `shell/server.sh` 脚本中的绝对路径和参数
 
 ```
@@ -69,7 +73,9 @@ sh shell/server.sh stop
 sh shell/server.sh restart
 ```
 
-## PHP-FPM 部署
+使用 `nginx` 或者 `SLB` 代理到服务器端口即可
+
+- PHP-FPM
 
 和 Laravel、ThinkPHP 部署方法完全一致，将 `public/index.php` 在 `nginx` 配置 `rewrite` 重写即可
 
