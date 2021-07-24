@@ -69,6 +69,10 @@ sh shell/server.sh stop
 sh shell/server.sh restart
 ```
 
+## PHP-FPM 部署
+
+和 Laravel、ThinkPHP 部署方法完全一致，将 `public/index.php` 在 `nginx` 配置 `rewrite` 重写即可
+
 ## 编写一个 API 接口
 
 首先修改根目录 `.env` 文件的数据库信息
