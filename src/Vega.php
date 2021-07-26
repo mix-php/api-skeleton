@@ -3,6 +3,7 @@
 namespace App;
 
 use App\Container\Logger;
+use Mix\Vega\Abort;
 use Mix\Vega\Context;
 use Mix\Vega\Engine;
 
@@ -21,6 +22,9 @@ class Vega
             try {
                 $ctx->next();
             } catch (\Throwable $ex) {
+                if ($ex instanceof Abort) {
+                    throw $ex;
+                }
                 Logger::instance()->error(sprintf('%s in %s on line %d', $ex->getMessage(), $ex->getFile(), $ex->getLine()));
                 $ctx->string(500, 'Internal Server Error');
                 $ctx->abort();
@@ -30,6 +34,7 @@ class Vega
         // debug
         if (APP_DEBUG) {
             $vega->use(function (Context $ctx) {
+                $ctx->next();
                 Logger::instance()->debug(sprintf(
                     '%s|%s|%s|%s',
                     $ctx->request->getMethod(),
@@ -37,7 +42,6 @@ class Vega
                     $ctx->response->getStatusCode(),
                     $ctx->remoteIP()
                 ));
-                $ctx->next();
             });
         }
 
