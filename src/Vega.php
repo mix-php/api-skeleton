@@ -6,6 +6,7 @@ use App\Container\Logger;
 use Mix\Vega\Abort;
 use Mix\Vega\Context;
 use Mix\Vega\Engine;
+use Mix\Vega\Exception\NotFoundException;
 
 class Vega
 {
@@ -22,7 +23,7 @@ class Vega
             try {
                 $ctx->next();
             } catch (\Throwable $ex) {
-                if ($ex instanceof Abort) {
+                if ($ex instanceof Abort || $ex instanceof NotFoundException) {
                     throw $ex;
                 }
                 Logger::instance()->error(sprintf('%s in %s on line %d', $ex->getMessage(), $ex->getFile(), $ex->getLine()));
