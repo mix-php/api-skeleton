@@ -2,7 +2,7 @@
 require __DIR__ . '/../vendor/autoload.php';
 
 /**
- * PHP-FPM 模式专用
+ * PHP-FPM, cli-server 模式专用
  */
 
 use App\Vega;
@@ -13,4 +13,4 @@ define("APP_DEBUG", env('APP_DEBUG'));
 
 App\Error::register();
 
-Vega::new()->run();
+return Vega::new()->run();

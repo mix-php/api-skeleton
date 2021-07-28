@@ -25,7 +25,7 @@ class Logger implements HandlerInterface
             $rotatingFileHandler = new RotatingFileHandler(__DIR__ . '/../../runtime/logs/mix.log', 7);
             $rotatingFileHandler->setFormatter(new LineFormatter("[%datetime%] %channel%.%level_name%: %message% %context% %extra%\n", 'Y-m-d H:i:s.u'));
             $logger->pushHandler($rotatingFileHandler);
-            PHP_SAPI == 'cli' and $logger->pushHandler(new Logger());
+            $logger->pushHandler(new Logger());
             self::$instance = $logger;
         }
         return self::$instance;
@@ -38,7 +38,13 @@ class Logger implements HandlerInterface
 
     public function handle(array $record): bool
     {
-        printf("%s  %s  %s\n", $record['datetime']->format('Y-m-d H:i:s.u'), $record['level_name'], $record['message']);
+        $message = sprintf("%s  %s  %s\n", $record['datetime']->format('Y-m-d H:i:s.u'), $record['level_name'], $record['message']);
+        switch (PHP_SAPI) {
+            case 'cli':
+            case 'cli-server':
+                file_put_contents("php://stdout", $message);
+                break;
+        }
         return false;
     }
 

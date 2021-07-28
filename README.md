@@ -12,6 +12,12 @@ composer create-project --prefer-dist mix/api-skeleton api
 
 ## 快速开始
 
+启动 [cli-server](https://www.php.net/manual/zh/features.commandline.webserver.php) 开发服务
+
+```
+composer run-script --timeout=0 cliserver:start
+```
+
 启动 Swoole 多进程服务
 
 ```
@@ -30,12 +36,6 @@ composer run-script --timeout=0 swooleco:start
 composer run-script --timeout=0 workerman:start
 ```
 
-启动 [cli-server](https://www.php.net/manual/zh/features.commandline.webserver.php) 开发服务
-
-```
-composer run-script --timeout=0 cliserver:start
-```
-
 ## 执行脚本
 
 - `composer run-script` 命令中的 `--timeout=0` 参数是防止 composer [执行超时](https://getcomposer.org/doc/06-config.md#process-timeout)
@@ -43,10 +43,10 @@ composer run-script --timeout=0 cliserver:start
 
 ```json
 "scripts": {
+    "cliserver:start": "php -S localhost:8000 public/index.php",
     "swoole:start": "php bin/swoole.php",
     "swooleco:start": "php bin/swooleco.php",
     "workerman:start": "php bin/workerman.php start",
-    "cliserver:start": "php -S localhost:8000 public/index.php",
     "cli:clearcache": "php bin/cli.php clearcache"
 },
 ```
